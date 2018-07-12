@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 class Animal{
+protected:
   int age;
   int weight;
 public:
@@ -58,8 +59,8 @@ public:
   Bird(int age,int weight);
   void speak();
 };
-Bird::Bird(int age,int weight):Animal(age,weight){
-
+Bird::Bird(int age,int weight):Animal(age,weight)
+{
 }
 void Bird::speak(){
   cout<<"jjack jjack"<<"\n";

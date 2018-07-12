@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main(){
+  try{
+    const int a=0;
+    if(a==0)
+      throw a;
+  }
+  catch(int e){
+    e+=2;
+    cout<<"const catch int a"<<e+2<<endl;
+  }
+
+}

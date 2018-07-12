@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class ClassA;
+class ClassB{
+  void Function(const ClassA& a){
+    a.var_ =0;
+  }
+
+};class ClassA{
+
+private:
+  int var_;
+  friend ClassB;
+  friend void DoSomething(const ClassA& a);
+};
+
+void DoSomething(const ClassA& a){
+
+  cout<<a.var_;
+}
+int main(){
+  DoSomething();
+  return 0;
+
+}

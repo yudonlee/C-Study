@@ -17,7 +17,7 @@ Calc::Calc(int new_A,int new_B){
   c=0;
 }
 Calc::Calc(){
-  a=0;
+  a=1;
   b=0;
   c=0;
 }
@@ -38,10 +38,10 @@ Add::Add(int new_A,int new_B){
 }
 int main(){
   Add y(3,5);
-  cout<<y.a<<endl;
+  // protected so object cannot jubgeon cout<<y.a<<endl;
   y.Prn();
   y.Sum();
   y.Prn();
-  
+
   return 0;
 }

@@ -39,7 +39,7 @@ public:
 struct Rectangle :public Shape{
 public:
   Rectangle(int a):Shape(a){}
-  virtual void Draw() const{
+  virtual void Draw()const {
     cout<<"draw Rect"<<endl;
   }
   void Drink() {

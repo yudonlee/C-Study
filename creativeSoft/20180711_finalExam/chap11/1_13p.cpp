@@ -6,15 +6,17 @@ struct Shape{
   }
 };
 struct Rectangle: public Shape{
-  virtual void Draw() const{
+  void Draw() const{
    cout<<"Rectangle Draw"<<endl;
   }
 };
 struct Triangle:public Shape{
+  //void Draw() const{
+  //}
   virtual void Draw() const{
     cout<<"Triangle Draw"<<endl;
 
-  }
+    }
 };
 int main(){
   Rectangle rect;

@@ -32,7 +32,7 @@ void Add::Sum(){
 
 }
 
-Add::Add(int new_A,int new_B):Calc(new_A, new_B)// int new_A error!
+Add::Add(int new_A,int new_B)//:Calc(new_A, new_B)// int new_A error!
 {
   //a=new_A; if they exist no error. if they dont exist no error 
   //b=new_B;
@@ -42,11 +42,14 @@ Add::Add():Calc(){
 }
 int main(){
   Calc x(3,5);
+
   x.Prn();
   Add y(3,5);
+  y.Sum();
   y.Prn();
   Add z;
   //z.Sum(); if implementation c =1 cout
+  z.Sum();
   z.Prn();
   
   return 0;
