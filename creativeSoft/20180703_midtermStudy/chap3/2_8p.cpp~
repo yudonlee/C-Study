@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct Student{
+  string name,id,grade;
+  
+};
+int main(){
+  int num_students =3;
+  Student* students = new Student[num_students];
+  for(int i=0; i<num_students;++i){
+    cin>>students[i].name;
+    cin>>(students+i)->id;
+    cin>>students[i].grade;
+  }
+  for(int i=0; i<num_students;++i){
+    cout<<students[i].name;
+    cout<<(students+i)->id;
+    //cout<<*(students+i)->id;
+    cout<<*(students+i).id;
+    cout<<students[i].grade<<endl;
+  }
+  Student a_students = {"gg","112","A"};
+  cout<<a_students.name<<a_students.id<<endl;//compile error a_students[0].name
+  //compile error Students[0]={12,23,23,2}
+
+}

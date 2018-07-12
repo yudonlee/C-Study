@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Person{
+public:
+  string name;
+  int age;
+  bool gender;
+  Person(){}
+  Person(string name,int age,bool gender){
+    this->name=name;
+    this->age =age;
+    this->gender =gender;
+  }
+  void print(){
+    cout<<"name :"<<name<<endl;
+    cout<<"age :"<<age<<endl;
+    cout<<"gender:"<<gender<<endl;
+  }
+};
+class Employee:public Person{
+public:
+  string no;
+  int salary;
+  string department;
+  Employee(){}
+  Employee(string name,int age, bool gender,string no,int salary,string department):Person(name,age,gender){
+    this->no =no;
+    this->salary=salary;
+    this->department=department;
+  }
+  void print(){
+    cout<<"no"<<no<<endl;
+    cout<<"salary"<<salary<<endl;
+    cout<<"department :"<<department<<endl;
+
+  }
+
+};
+class Manager:public Employee{
+private:
+  int bonus;
+public:
+  Manager(){}
+  Manager(string name,int age, bool gender, string no,int salary,string department,int bonus):Employee(name,age,gender,no,salary,department){
+    this->bonus=bonus;
+  }
+  void print(){
+    cout<<"name       :"<<name<<endl;
+    cout<<"age        :"<<age<<endl;
+    cout<<"gender     :"<<gender<<endl;
+    cout<<"no:        :"<<no<<endl;
+    cout<<"salary     :"<<salary<<endl;
+    cout<<"department :"<<department<<endl;
+    cout<<"bonus      :"<<bonus<<endl;
+  }
+
+};
+  int main(){
+    Manager manager("son dong bok",30,true,"101",5000,"HumanResource",2000);
+    manager.print();
+    return 0;
+
+  }

@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Animal{
+protected:
+  int age;
+  int weight;
+public:
+  Animal();
+  Animal(int age,int weight);
+  void sleep();
+  void print();
+  void eat();
+  void speak();
+};
+Animal::Animal(int age,int weight){
+  this->age=age;
+  this->weight=weight;
+}
+void Animal::sleep(){
+  cout<<"sleep."<<endl;
+}
+void Animal::print(){
+  cout<<"age    :"<<age<<endl;
+  cout<<"weight :"<<weight<<endl;
+}
+void Animal::eat(){
+  cout<<"eat."<<endl;
+}
+void Animal::speak(){
+
+}
+class Dog:public Animal{
+  string breed;
+public:
+  Dog(int age,int weight,string breed):Animal(age,weight){
+    this->breed =breed;
+  }
+  void speak();
+  void print();
+};
+void Dog::speak(){
+  cout<<"Woof Woof(meong meong)"<<endl;
+}
+void Dog::print(){
+  cout<<"age    :"<<this->age<<endl;
+  cout<<"weight :"<<this->weight<<endl;
+  cout<<"breed  :"<<breed<<endl;
+
+}
+class Bird:public Animal{
+  public:
+  Bird(int age,int weight):Animal(age,weight){
+    this->age=age;
+    this->weight=weight;
+  }
+  void speak(){
+    cout<<"jjack jjack"<<endl;
+  }
+};
+int main(){
+  Dog dog(3,7,"maltiz");
+  dog.print();
+  dog.sleep();
+  dog.speak();
+  cout<<"-------------------------\n";
+  Bird bird(1,3);
+  bird.print();
+  bird.sleep();
+  bird.speak();
+  return 0;
+
+}

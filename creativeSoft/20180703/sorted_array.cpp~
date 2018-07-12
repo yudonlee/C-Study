@@ -1,0 +1,39 @@
+#include "sorted_array.h"
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+SortedArray::SortedArray(){
+}
+SortedArray::~SortedArray(){
+}
+void SortedArray::AddNumber(int num) {
+  numbers_.push_back(num);
+  sort(numbers_.begin(),numbers_.end());
+}
+vector<int> SortedArray::GetSortedAscending() const{
+  vector<int> result;
+  for(vector<int>::const_iterator itr=numbers_.cbegin();itr!=numbers_.cend();itr++){
+    result.push_back(*itr);
+  }
+  return result;
+  
+}
+vector<int> SortedArray::GetSortedDescending()const{
+  vector<int> result2;
+  for(vector<int>::const_reverse_iterator ritr = numbers_.crbegin();ritr !=numbers_.crend();ritr++){
+    result2.push_back(*ritr);
+  }
+  return result2;
+}
+int SortedArray::GetMax()const{
+  int maxValue;
+  maxValue=numbers_.back();
+  return maxValue;
+ 
+}
+int SortedArray::GetMin()const{
+  int minValue;
+  minValue = numbers_.front();
+  return minValue;
+}

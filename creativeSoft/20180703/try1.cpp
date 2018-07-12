@@ -1,0 +1,7 @@
+#include <iostream>
+#include <string>
+
+int main(){
+  string a = "1112aa";
+  cout<<"a[0] is"<<a[0]<<endl;
+}

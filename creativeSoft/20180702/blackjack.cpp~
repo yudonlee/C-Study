@@ -1,0 +1,77 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int BlackJack(){
+  int sum=0;
+  bool aIndex;
+  size_t pos;
+  int count;
+  string inputs;
+  cin>>count;
+  getline(cin,inputs);
+  inputs.erase(0,1);
+  if(count<2) return -1;
+  string *cards = new string[count];
+  for(int i=0;i<count-1;i++){
+    pos=inputs.find(" ");
+    if(inputs.find(" ")==string::npos){
+      return -1;
+    }
+    cards[i]=inputs.substr(0,pos);
+    inputs.erase(0,pos+1); 
+  }
+  for(int i=0;i<count;i++){
+    if(cards[i][0]=='J'||cards[i][0]=='K'||cards[i][0]=='Q'){
+      if(cards[i].size()==1){
+	cards[i].erase();
+	cards[i]="10";
+	  }
+      }
+    if(cards[i].find('A')!=string::npos){
+      if(cards[i].size()==1)
+	aIndex = true;
+    }
+  }
+  for(int i=0;i<count;i++){
+    if(cards[i][0]!='A'){
+      if(isdigit(cards[i][0])==false||stoi(cards[i])==0||stoi(cards[i])==1||stoi(cards[i])>10){
+	  delete cards;
+	  return -1;
+	}
+      else sum+=stoi(cards[i]); 
+    }
+  }
+  if(aIndex){
+    if(sum<11&&sum>=0)
+      sum+=11;
+    else
+      sum+=1;
+  }
+  delete[] cards;
+  
+  return (sum>21)? 0:sum; 
+    
+      
+      
+  
+    
+  
+  
+
+}
+
+int main(){
+  int result;
+  while(result!=-1){
+    BlackJack();
+    result = BlackJack();
+    if(result=0)
+      cout<<"Exceed"<<endl;
+    else if(result=21)
+      cout<<"BlackJack"<<endl;
+    else if(result>0&&result<21)
+      cout<<result<<endl;
+    
+  }
+  return 0;
+}

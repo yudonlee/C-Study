@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int main(){
+  int n, number=1;
+  cin>>n;
+  if(n<2||n%2==0)
+    return 0;
+  int i=0,j=(n-1)/2;
+  int** Board = new int*[n];
+  for(int i=0;i<n; ++i){
+    Board[i] = new int[n];
+  }
+  Board[i][j]=number;
+  
+  while(number<n*n){
+    i-=1;
+    j+=1;
+    if((number)%n==0){
+      i+=2;
+      j-=1;
+      Board[i][j]=++number;
+    }
+    
+    else{
+      if(i==-1){
+	i+=n;
+	Board[i][j]=++number;
+      }
+      else if(j==n){
+	j-=n;
+	Board[i][j]=++number;
+      }
+      else
+	Board[i][j]=++number;
+    }
+  }
+  for(int i=0;i<n;++i){
+    for(int j=0;j<n;++j){
+      cout<<Board[i][j]<<" ";
+    }
+    cout<<endl;
+  }
+  for(int i=0;i<n;++i)
+    delete[] Board[i];
+  delete[] Board;
+  
+  
+}

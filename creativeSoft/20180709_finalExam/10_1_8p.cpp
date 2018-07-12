@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+class Calc{
+protected:
+  int a,b,c;
+public:
+  void Prn();
+  Calc();
+  Calc(int new_A,int new_B);
+};
+void Calc::Prn(){
+  cout<<a<<"\t"<<b<<"\t"<<c<<endl;
+}
+Calc::Calc(int new_A,int new_B){
+  a=new_A;
+  b=new_B;
+  c=0;
+}
+Calc::Calc(){
+  a=0;
+  b=0;
+  c=0;
+}
+class Add: public Calc{
+public:
+  void Sum();
+  Add();
+  Add(int new_A,int new_B);
+};
+void Add::Sum(){
+  c =a+b;
+
+}
+Add::Add(int new_A,int new_B){
+  a=new_A;
+  b=new_B;
+  c=0;
+}
+int main(){
+  Add y(3,5);
+  cout<<y.a<<endl;
+  y.Prn();
+  y.Sum();
+  y.Prn();
+  
+  return 0;
+}

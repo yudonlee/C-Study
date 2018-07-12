@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+char * get_pointer(){
+  static char x=0;
+  return &x;
+  
+}
+int main(){
+  char *ptr =get_pointer();
+  *ptr=12;
+  
+}

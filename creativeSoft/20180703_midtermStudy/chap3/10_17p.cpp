@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main(){
+  char* p;
+  const char* cp;
+  p[0]='a';
+  cp[0]='b';
+  char* q = "ZAA";
+  const char* cq="hello";
+  p=q,cp=q;
+  cout<<"p is"<<*p<<"q is"<<*q<<"cp is<<"<<*cp<<endl;
+  p=cq;
+  cp=cq;
+  //cout<<"cp is"<<*cp<<"cq is"<<*cq<<endl;
+}

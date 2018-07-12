@@ -1,0 +1,30 @@
+#include <string>
+#include <iostream>
+struct StudentInfo{
+public:
+  StudentInfo(int _id,std::string _name,int _score){
+    id = _id;
+    name = _name;
+    score = _score;
+  }
+  int ShowInfo() const{
+    std::cout<<id<<"|"<<name<<"|"<<score<<std::endl;
+    return 0;
+  }
+  int id;
+  std::string name;
+private:
+  int score;
+
+};
+class StudentInfoEx:public StudentInfo
+{
+  std::string GetName();
+  int GetScore();
+};
+std::string StudentInfoEx::GetName(){
+  return name;
+}
+int StudentInfoEx::GetScore(){
+  return score;
+}

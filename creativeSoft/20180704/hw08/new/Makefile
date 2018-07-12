@@ -1,0 +1,8 @@
+draw_shape: draw_shape_main.o draw_shape.o
+	g++ -o draw_shape draw_shape_main.o draw_shape.o
+draw_shape_main.o: draw_shape_main.cpp
+	g++ -c draw_shape_main.cpp
+draw_shape.o: draw_shape.cpp
+	g++ -c draw_shape.cpp
+clean:
+	rm draw draw_shape_main.o draw_shape.o

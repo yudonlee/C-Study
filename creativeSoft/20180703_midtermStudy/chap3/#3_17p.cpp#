@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int main(){
+  const int b =3;
+  char* p;
+  p[0] = 'a';
+  char* q = NULL;
+  const char* cp="a";
+  const char* cq = "Hello";
+  p=q,cp=q;
+  cout<<*cp<<" "<<endl;
+  cp=cq;
+  cout<<*cp<<" " <<*cq<<endl;
+  //read only *cp = "q";
+  //*cq = "Q";
+  // read only cout<<*cq<<endl;
+}

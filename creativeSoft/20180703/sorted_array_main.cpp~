@@ -1,0 +1,46 @@
+#include "sorted_array.h"
+#include <ctype.h>
+#include <string>
+#include <stdlib.h>
+using namespace std;
+int main(){
+  SortedArray array;
+  string inputs;
+  getline(cin,inputs);
+  while(true){
+    if(inputs=="quit")
+    break;
+    if(inputs=="ascend"){
+      vector<int> result2=array.GetSortedAscending();
+      for(vector<int>::size_type i=0;i<result2.size();i++){
+	cout<<result2.at(i)<<" ";
+      }
+      cout<<"\n";
+    }
+    else if(inputs=="descend"){
+      vector<int> result2=array.GetSortedDescending();
+      for(vector<int>::size_type i=0;i<result2.size();i++){
+	cout<<result2.at(i)<<" ";
+      }
+      cout<<"\n";
+    }
+    else if(inputs=="min"){
+      int num=array.GetMax();
+      cout<<num<<endl;
+    }
+    else if(inputs=="max"){
+      int num=array.GetMin();
+      cout<<num<<endl;
+    }
+    else if(isdigit(inputs[0])!=0){
+      array.AddNumber(stoi(inputs));
+      vector<int> result2=array.GetSortedAscending();
+      for(vector<int>::size_type i=0;i<result2.size();i++){
+	cout<<result2.at(i)<<" ";
+      }
+      cout<<"\n";
+    }
+   
+  }
+  return 0;
+}

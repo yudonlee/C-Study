@@ -1,0 +1,155 @@
+#include "point2d.h"
+#include <iostream>
+#include <vector>
+using namespace std;
+int main(){
+  while(true){
+    vector<Point> vectors;
+    string mode;
+    cin>>mode;
+    if(mode=="quit")
+      break;
+    else if(mode=="set"){
+      string tname;
+      int x_val,y_val;
+      cin>>tname>>x_val>>y_val;
+      Point tmp(x_val,y_val);
+      tmp.name = tname;
+      vectors.push_back(tmp);
+      
+    }
+    else if(mode =="eval"){
+      string var1,oper,var2;
+      Point* ltemp =NULL;
+      Point* rtemp =NULL;
+      cin>>var1>>oper>>var2;
+      if((!isdigit(var1))&&(!isdigit(var2))){
+	bool result1,result2;
+	for(vector<Point>::iterator itr= vectors.begin(); itr!=vectors.end();itr++){
+	  if(var1==(*itr)){
+	    if(var1[0]=="-"){
+	      Point neg_tmp(*itr);
+	      ltemp = new Point(-neg_tmp);
+	    }
+	    else{
+	      ltemp =new Point(*itr);
+	      result1 =true;}
+	  }
+	  if(var2==*itr){
+	    if(var1[0]=="-"){
+	      Point neg_tmp(*itr);
+	      rtemp = new Point(-neg_tmp);
+	    }
+	    else{
+	      rtemp= new Point(*itr);
+	      result2=true;
+	    }
+	  } 
+	}
+	if(result1&&result2){
+	  if(oper=="+"){
+	    cout<<"("<<*ltemp.x_+*rtemp.x_<<","<<*ltemp.x_+*rtemp.y_<<")"<<endl;
+	  }
+	  else if(oper =="-"){
+	    cout<<"("<<(*ltemp.x_)-(*rtemp.x_)<<","<<(*ltemp.x_)-(*rtemp.y_)<<")"<<endl;
+	  }
+	  else if(oper =="*"){
+	    cout<<"("<<(*ltemp.x_)*(*rtemp.x_)<<","<<(*ltemp.x_)+(*rtemp.y_)<<")"<<endl;
+	  }
+	  else{
+	    cout<<"input error"<<endl;
+	  }
+	  
+	}
+	else
+	  cout<<"input error"<<endl;
+      
+      }
+      else if(isdigit(var1)&&!isdigit(var2)){
+	bool result2;
+	ltmp = new Point(stoi(var1));
+	for(vector<Point>::iterator itr= vectors.begin(); itr!=vectors.end();itr++){
+	  if(var2==*itr){
+	    if(var2[0]=="-"){
+	      Point neg_tmp(*itr);
+	      rtemp = new Point(-neg_tmp);
+	    }
+	    else{
+	      rtemp =new Point(*itr);
+	      result2 =true;
+	    }
+	  }
+	  
+	}
+	if(result2){
+	  if(oper=="+"){
+	    cout<<"("<<*ltemp.x_+*rtemp.x_<<","<<*ltemp.x_+*rtemp.y_<<")"<<endl;
+	  }
+	  else if(oper =="-"){
+	    cout<<"("<<(*ltemp.x_)-(*rtemp.x_)<<","<<(*ltemp.x_)-(*rtemp.y_)<<")"<<endl;
+	  }
+	  else if(oper =="*"){
+	    cout<<"("<<(*ltemp.x_)*(*rtemp.x_)<<","<<(*ltemp.x_)+(*rtemp.y_)<<")"<<endl;
+	  }
+	  else{
+	    cout<<"input error"<<endl;
+	  } 
+	}
+	else
+	  cout<<"input error"<<endl;
+      }
+      else if(isdigit(var2)&&!isdigit(var1)){
+	bool result1;
+	rtmp = new Point(stoi(var2));
+	for(vector<Point>::iterator itr= vectors.begin(); itr!=vectors.end();itr++){
+	  if(var1==*itr){
+	    if(var1[0]=="-"){
+	      Point neg_tmp(*itr);
+	      ltemp = new Point(-neg_tmp);
+	    }
+	    else{
+	      ltemp =new Point(*itr);
+	      result1 =true;
+	    }
+	  }
+	  
+	}
+	
+	if(result1){
+	  if(oper=="+"){
+	    cout<<"("<<*ltemp.x_+*rtemp.x_<<","<<*ltemp.x_+*rtemp.y_<<")"<<endl;
+	  }
+	  else if(oper =="-"){
+	    cout<<"("<<(*ltemp.x_)-(*rtemp.x_)<<","<<(*ltemp.x_)-(*rtemp.y_)<<")"<<endl;
+	  }
+	  else if(oper =="*"){
+	    cout<<"("<<(*ltemp.x_)*(*rtemp.x_)<<","<<(*ltemp.x_)+(*rtemp.y_)<<")"<<endl;
+	  }
+	  else{
+	    cout<<"input error"<<endl;
+	  }
+	  
+	}
+	else
+	  cout<<"input error"<<endl;
+      }
+      else(isdigit(var1)&&isdigit(var2)){
+	  ltemp = new Point(var1);
+	  rtemp= new Point(var2);
+	  if(oper=="+"){
+	    cout<<"("<<*ltemp.x_+*rtemp.x_<<","<<*ltemp.x_+*rtemp.y_<<")"<<endl;
+	  }
+	  else if(oper =="-"){
+	    cout<<"("<<(*ltemp.x_)-(*rtemp.x_)<<","<<(*ltemp.x_)-(*rtemp.y_)<<")"<<endl;
+	  }
+	  else if(oper =="*"){
+	    cout<<"("<<(*ltemp.x_)*(*rtemp.x_)<<","<<(*ltemp.x_)+(*rtemp.y_)<<")"<<endl;
+	  }
+	  else{
+	    cout<<"input error"<<endl;
+	  }
+	  
+	}
+    } 
+  }
+}

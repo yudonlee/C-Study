@@ -1,0 +1,8 @@
+#include <iostream>
+using namespace std;
+static int b;
+void sub2(){
+  b+=100;
+  cout<<"\n sub2 b(file3.cpp)==>"<<b;
+
+}
