@@ -15,9 +15,7 @@ int main(){
   cin>>a;
   int* tmp = new int[a];
   for(int i=0;i<a;i++){
-    int inNum;
-    cin>>inNum;
-    tmp[i] =inNum;
+    cin>>tmp[i];
     insertionSort(tmp,i+1);
      }
   for(int j=0;j<a;j++){
