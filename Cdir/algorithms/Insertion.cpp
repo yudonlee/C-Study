@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 void insertionSort(int *ptr,int N) {
-  int j,p;
-  int Tmp;
+  int j,p,Tmp;
   for(int p=1;p<N;p++ ){
     Tmp=ptr[p];
     for(j=p;j>0&&ptr[j-1]<Tmp;j--)
@@ -11,16 +10,14 @@ void insertionSort(int *ptr,int N) {
   }
 }
 int main(){
-  int a;
-  cin>>a;
-  int* tmp = new int[a];
-  for(int i=0;i<a;i++){
+  int n;
+  cin>>n;
+  int* tmp = new int[n];
+  for(int i=0;i<n;i++)
     cin>>tmp[i];
-    insertionSort(tmp,i+1);
-     }
-  for(int j=0;j<a;j++){
+  insertionSort(tmp,n);
+  for(int j=0;j<n;j++)
     cout<<tmp[j]<<endl;
-  }
   delete(tmp);
   return 0;
 
