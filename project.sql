@@ -1,6 +1,6 @@
 USE Pokemon;
 #1번
-select name from Trainer as T,CatchedPokemon as C where T.id=C.owner_id group by T.name having count(owner_id)>2 order by count(owner_id) asc;
+select name from Trainer as T,CatchedPokemon as C where T.id=C.owner_id group by T.name having count(owner_id)>2 order by count(owner_id) desc;
 #2번
 select name from Pokemon,(select type,count(type) as counter from Pokemon group by type order by counter desc limit 2) as Type where Pokemon.type  = Type.type order by name asc;
 #3번
@@ -8,7 +8,7 @@ select name from Pokemon where name like '_o%' order by name asc;
 #4번
 select nickname from CatchedPokemon where level>=50 order by nickname asc;
 #5번
-select name from Pokemon where char_length(name)=6 order by name asc;.
+select name from Pokemon where char_length(name)=6 order by name asc;
 #6번
 select name from Trainer where hometown = 'Blue City' order by name asc;
 #7번
@@ -26,7 +26,7 @@ select level,nickname from CatchedPokemon where level <=50 order by level asc;
 #13번
 select  P.id,P.name from Trainer as T,Pokemon as P,CatchedPokemon as C where T.hometown = 'Sangnok City' and C.owner_id = T.id and P.id =C.pid order by P.id asc; 
 #14번
-select  C.nickname from Gym as G,CatchedPokemon as C,Pokemon as P where G.leader_id = C.owner_id and P.type = 'Water' order by nickname asc;
+select  distinct C.nickname from Gym as G,CatchedPokemon as C,Pokemon as P where G.leader_id = C.owner_id and P.type = 'Water' order by nickname asc;
 #15번
 select Count(pid) As 'EvovableNum_Pokemon' from CatchedPokemon as C,Evolution as E where C.pid = E.before_id;
 #16번
